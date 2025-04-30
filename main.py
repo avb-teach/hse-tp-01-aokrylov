@@ -17,4 +17,7 @@ for elem in os.walk(args[1]):
 
     for file in elem[2]:
         os.system(command_cp.replace('?', elem[0] + "/" + file)
-            .replace('@', args[2] + "/" + '/'.join(pth[max(0, len(pth) - mx + 1):])))
+            .replace('@', args[2] + "/" + '/'.join(pth[max(0, len(pth) - mx + 1):])))
+
+
+
