@@ -4,8 +4,7 @@ import sys
 args = sys.argv
 mx = 1
 command_mkdr = "mkdir -p ?"
-command_cp = "cp ? ?"
-
+command_cp = "cp ? @"
 if len(args) == 5:
     mx = int(args[4])
 for elem in os.walk(args[1]):
@@ -14,12 +13,8 @@ for elem in os.walk(args[1]):
         '/'
     )[sz:]
     for i in range(max(0, len(pth) - mx + 1), len(pth)):
-        os.system(command_mkdr.replace('?', args[2] + "/" + '/'.join(pth[:i + 1])))
+        os.system(command_mkdr.replace('?', args[2] + "/" + '/'.join(pth[i:])))
 
     for file in elem[2]:
-        os.system(command_cp.replace('?', elem[0] + "/" + file, 1)
-            .replace('?', args[2] + "/" + '/'.join(pth[max(0, len(pth) - mx + 1):])))
-
-
-
-
+        os.system(command_cp.replace('?', elem[0] + "/" + file)
+            .replace('@', args[2] + "/" + '/'.join(pth[max(0, len(pth) - mx + 1):])))
