@@ -2,3 +2,4 @@
 
 python3 main.py $@
 
+git
